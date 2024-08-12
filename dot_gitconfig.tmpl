@@ -1,0 +1,54 @@
+[user]
+  name = Ruben Aleman
+  email = {{ .email }}
+[core]
+	editor = nano
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  whitespace = white reverse
+  meta = blue reverse
+  frag = blue reverse
+  old = red
+  new = green
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = cyan
+[push]
+  default = current
+[alias]
+  uncommit = reset HEAD~1 --soft
+  slog = log --oneline
+	co = checkout
+	cob = checkout -b
+	com = commit -m
+	ds = diff --staged
+[merge]
+	ff = true
+[init]
+	defaultBranch = main
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    line-numbers = true
+    side-by-side = true
+    # delta detects terminal colors automatically; set one of these to disable auto-detection
+    # dark = true
+    # light = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

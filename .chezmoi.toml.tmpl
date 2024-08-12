@@ -1,0 +1,8 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $clustername := promptStringOnce . "clustername" "Name of the used kubernetes cluster for vscode" -}}
+[data]
+    email = {{ $email | quote }}
+    clustername = {{ $clustername | quote }}
+[edit]
+command = "code"
+args = ["--wait"]
