@@ -30,6 +30,7 @@
 	com = commit -m
 	ds = diff --staged
   cane = commit --amend --no-edit
+  rh = "!f() { git rebase -i HEAD~$1; }; f"
 [merge]
 	ff = true
 [init]
