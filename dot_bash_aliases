@@ -1,9 +1,10 @@
+# shellcheck disable=SC2148
 alias k='kubectl'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias update_snap='update_snap.sh'
-alias update='sudo apt update && sudo apt upgrade -y'
+alias update='sudo apt update && sudo apt upgrade -y && mise plugin up && mise up'
 alias publicip='dig @1.1.1.1 ch txt whoami.cloudflare -4 +short | sed "s/\"//g"'
 alias publicipv6='dig @2606:4700:4700::1111 ch txt whoami.cloudflare -6 +short | sed "s/\"//g"'
 alias amend='git commit --amend --no-edit && git push  --force-with-lease'
@@ -15,3 +16,5 @@ alias ocd="bundle exec octocatalog-diff"
 alias jq="gojq"
 alias checkov='docker run -it --rm --workdir /share -v $PWD:/share:ro bridgecrew/checkov:latest --quiet --compact --directory /share'
 alias mv='mv -i'
+alias mv='cp -i'
+alias rg='rg --no-ignore-vcs'
