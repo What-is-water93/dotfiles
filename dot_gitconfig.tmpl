@@ -25,10 +25,10 @@
 [alias]
   uncommit = reset HEAD~1 --soft
   slog = log --oneline
-	co = checkout
-	cob = checkout -b
-	com = commit -m
-	ds = diff --staged
+  co = checkout
+  cob = checkout -b
+  com = commit -m
+  ds = diff --staged
   cane = commit --amend --no-edit
   rh = "!f() { git rebase -i HEAD~$1; }; f"
   acp = "!git add -u && git commit -m "update $(date "+%Y-%m-%d %H:%M")" && git push"
