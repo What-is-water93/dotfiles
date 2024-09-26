@@ -18,3 +18,4 @@ alias checkov='docker run -it --rm --workdir /share -v $PWD:/share:ro bridgecrew
 alias mv='mv -i'
 alias mv='cp -i'
 alias rg='rg --no-ignore-vcs'
+alias fd='fd -H -I'
