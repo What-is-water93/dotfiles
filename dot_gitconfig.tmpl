@@ -32,13 +32,14 @@
   cane = commit --amend --no-edit
   rh = "!f() { git rebase -i HEAD~$1; }; f"
   acp = "!git add -u && git commit -m \"update $(date '+%Y-%m-%d %H:%M')\" && git push"
+  rc = rebase --continue
 [merge]
 	ff = true
 [init]
 	defaultBranch = main
 [core]
   pager = delta
-  sshCommand = ssh -i ~/.ssh/ruben.aleman
+  sshCommand = ssh -i ~/.ssh/{{ .ssh_key }}
 
 [interactive]
     diffFilter = delta --color-only

@@ -1,8 +1,11 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $clustername := promptStringOnce . "clustername" "Name of the used kubernetes cluster for vscode" -}}
+{{- $ssh_key := promptStringOnce . "primary ssh key" "Name of the primary ssh key file" -}}
+
 [data]
     email = {{ $email | quote }}
     clustername = {{ $clustername | quote }}
+    ssh_key = {{ $ssh_key | quote }}
 [edit]
 command = "code"
 args = ["--wait"]
