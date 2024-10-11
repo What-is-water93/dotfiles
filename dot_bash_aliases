@@ -16,6 +16,6 @@ alias ocd="bundle exec octocatalog-diff"
 alias jq="gojq"
 alias checkov='docker run -it --rm --workdir /share -v $PWD:/share:ro bridgecrew/checkov:latest --quiet --compact --directory /share'
 alias mv='mv -i'
-alias mv='cp -i'
+alias cp='cp -i'
 alias rg='rg --no-ignore-vcs'
 alias fd='fd -H -I'
