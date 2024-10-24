@@ -147,7 +147,7 @@
     },
     "ruby.rubocop.executePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/",
     "ruby.rubocop.autocorrectOnSave": true,
-    "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/1.23.0",
+    "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/1.23.2",
     "shellcheck.ignorePatterns": {
         "**/*.envrc": true
     },
@@ -160,4 +160,7 @@
         "editor.defaultFormatter": "manuelpuyol.erb-linter",
         "editor.formatOnSave": false
     },
+    "gopls": {
+        "ui.semanticTokens": true
+    }
 }
