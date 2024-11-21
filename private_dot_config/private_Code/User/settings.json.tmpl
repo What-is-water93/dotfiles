@@ -147,7 +147,7 @@
     },
     "ruby.rubocop.executePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/",
     "ruby.rubocop.autocorrectOnSave": true,
-    "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/1.23.2",
+    "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/latest",
     "shellcheck.ignorePatterns": {
         "**/*.envrc": true
     },
@@ -162,6 +162,8 @@
     },
     "gopls": {
         "ui.semanticTokens": true
-    }
-    "solargraph.commandPath": "/home/ruben/.local/share/mise/installs/ruby/3.1.1/bin/solargraph"
+    },
+    "solargraph.commandPath": "/home/ruben/.local/share/mise/shims/solargraph",
+    "erb.erb-lint.pathToBundler": "/home/ruben/.local/share/mise/shims/bundle",
+    "window.titleBarStyle": "custom",
 }
