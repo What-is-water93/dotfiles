@@ -1,0 +1,28 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "{{ .chezmoi.homeDir }}/.bashrc" ]; then
+	. "{{ .chezmoi.homeDir }}/.bashrc"
+    fi
+fi
+
+if [ -d "{{ .chezmoi.homeDir }}/bin" ] ; then
+    PATH="{{ .chezmoi.homeDir }}/bin:$PATH"
+fi
+
+if [ -d "{{ .chezmoi.homeDir }}/.local/bin" ] ; then
+    PATH="{{ .chezmoi.homeDir }}/.local/bin:$PATH"
+fi
+
+if [ -f "{{ .chezmoi.homeDir }}/.cargo/env" ]; then
+    # shellcheck source={{ .chezmoi.homeDir }}/.cargo/env
+    . "{{ .chezmoi.homeDir }}/.cargo/env"
+fi
+
+export TF_PLUGIN_CACHE_DIR="{{ .chezmoi.homeDir }}/.terraform.d/plugin-cache"
