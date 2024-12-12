@@ -2,7 +2,6 @@
 ripgrep = "latest"
 terraform-ls = "latest"
 awscli = "latest"
-python = "system"
 opentofu = "latest"
 usage = "latest"
 go = "latest"

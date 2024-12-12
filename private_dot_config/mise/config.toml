@@ -1,3 +1,4 @@
 [settings]
 python_compile = false
 experimental = true
+disable_tools = ["python"]
