@@ -1,5 +1,5 @@
 # shellcheck disable=SC2148
-alias k='kubectl'
+alias k='kubecolor'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'

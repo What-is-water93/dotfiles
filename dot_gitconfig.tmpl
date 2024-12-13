@@ -33,6 +33,7 @@
   rh = "!f() { git rebase -i HEAD~$1; }; f"
   acp = "!git add -u && git commit -m \"update $(date '+%Y-%m-%d %H:%M')\" && git push"
   rc = rebase --continue
+  pfwl = push --force-with-lease
 [merge]
 	ff = true
 [init]
