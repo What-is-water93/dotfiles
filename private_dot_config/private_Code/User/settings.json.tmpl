@@ -107,10 +107,6 @@
     "rest-client.enableTelemetry": false,
     "terminal.integrated.defaultProfile.windows": "",
     "terminal.integrated.defaultProfile.linux": "bash",
-    "rubyLsp.rubyVersionManager": {
-        "miseExecutablePath": "/usr/bin/mise",
-        "identifier": "mise"
-    },
     "terraform.codelens.referenceCount": true,
     "[hcl]": {
         "editor.tabSize": 2
@@ -124,27 +120,6 @@
     "puppet.editorService.debugFilePath": "{{ .chezmoi.homeDir }}/tmp/vscode-puppet.log",
     "gitlens.launchpad.indicator.enabled": false,
     "terraform.languageServer.terraform.path": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/terraform",
-    "rubyLsp.formatter": "rubocop",
-    "rubyLsp.enabledFeatures": {
-        "codeActions": true,
-        "diagnostics": true,
-        "documentHighlights": true,
-        "documentLink": true,
-        "documentSymbols": true,
-        "foldingRanges": true,
-        "formatting": true,
-        "hover": true,
-        "inlayHint": true,
-        "onTypeFormatting": true,
-        "selectionRanges": true,
-        "semanticHighlighting": true,
-        "completion": true,
-        "codeLens": true,
-        "definition": true,
-        "workspaceSymbol": true,
-        "signatureHelp": true,
-        "typeHierarchy": true
-    },
     "ruby.rubocop.executePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/",
     "ruby.rubocop.autocorrectOnSave": true,
     "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/latest",
