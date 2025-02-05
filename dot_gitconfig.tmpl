@@ -1,6 +1,7 @@
 [user]
-  name = Ruben Aleman
-  email = {{ .email }}
+    name = Ruben Aleman
+    email = {{ .email }}
+    signingKey = {{ .chezmoi.homeDir }}/.ssh/{{ .ssh_key_pub }}
 [core]
 	editor = nano
 	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
@@ -58,3 +59,5 @@
 
 [diff]
     colorMoved = default
+[gpg]
+    format = ssh
