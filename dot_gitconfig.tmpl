@@ -41,7 +41,7 @@
 	defaultBranch = main
 [core]
   pager = delta
-  sshCommand = ssh -i ~/.ssh/{{ .ssh_key }}.pub
+  sshCommand = ssh -i ~/.ssh/{{ .ssh_key_pub }}
 
 [interactive]
   diffFilter = delta --color-only
