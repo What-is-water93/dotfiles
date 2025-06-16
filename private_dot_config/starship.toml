@@ -1,0 +1,84 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 50
+command_timeout = 1000
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+format = """
+$time\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$c\
+$cmake\
+$golang\
+$helm\
+$nodejs\
+$python\
+$ruby\
+$rust\
+$terraform\
+$vlang\
+$vagrant\
+$buf\
+$memory_usage\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$status\
+$aws\
+$character"""
+
+[time]
+disabled = false
+time_format = "%R"          # Hour:Minute Format
+format = '[$time ]($style)'
+
+[username]
+format = '[$user@]($style)'
+disabled = true
+
+[kubernetes]
+disabled = false
+[[kubernetes.contexts]]
+context_pattern = "*prod*"
+style = "bold red"
+# context_alias = "client-prod"
+[[kubernetes.contexts]]
+context_pattern = "replace_me"
+style = "green"
+# context_alias = "client-dev"
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+style = 'bold #FFA500'
+symbol = ' '
+
+[line_break]
+disabled = true
+[sudo]
+style = "bold blue"
+symbol = "‍💻 "
+disabled = false
+
+[git_branch]
+symbol = " "
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red) "
