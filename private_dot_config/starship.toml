@@ -46,7 +46,7 @@ $character"""
 
 [time]
 disabled = false
-time_format = "%R"          # Hour:Minute Format
+time_format = "%R" # Hour:Minute Format
 format = '[$time ]($style)'
 
 [username]
@@ -54,20 +54,21 @@ format = '[$user@]($style)'
 disabled = true
 
 [kubernetes]
-disabled = false
+disabled = true
 [[kubernetes.contexts]]
 context_pattern = "*prod*"
 style = "bold red"
-# context_alias = "client-prod"
+context_alias = "client-prod"
 [[kubernetes.contexts]]
 context_pattern = "replace_me"
 style = "green"
-# context_alias = "client-dev"
+context_alias = "client-dev"
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
-style = 'bold #FFA500'
-symbol = ' '
+style = 'bold #FF9900'
+symbol = ' '
+[aws.profile_aliases]
 
 [line_break]
 disabled = true
@@ -79,6 +80,7 @@ disabled = false
 [git_branch]
 symbol = " "
 
-[character]
-success_symbol = "[➜](bold green)"
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✗](bold red) "

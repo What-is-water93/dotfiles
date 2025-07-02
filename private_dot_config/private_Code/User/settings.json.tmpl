@@ -22,7 +22,8 @@
     "files.associations": {
         "*.dot": "dot",
         "*.hcl": "hcl",
-        "*.sh": "shellscript"
+        "*.sh": "shellscript",
+        "*.j2": "html"
     },
     "[nginx]": {
         "editor.tabSize": 2
@@ -31,7 +32,6 @@
     "[terraform]": {
         "editor.tabSize": 2,
         "editor.detectIndentation": false,
-        "editor.defaultFormatter": "hashicorp.terraform",
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true,
     },
@@ -90,10 +90,6 @@
     },
     "telemetry.telemetryLevel": "off",
     "yaml.format.enable": false,
-    "terraform.languageServer.tcp.port": 0,
-    "terraform.languageServer.indexing.ignoreDirectoryNames": [
-        "modules"
-    ],
     "application.shellEnvironmentResolutionTimeout": 15,
     "markdown.marp.html": "all",
     "markdown.marp.exportType": "html",
@@ -107,7 +103,6 @@
     "rest-client.enableTelemetry": false,
     "terminal.integrated.defaultProfile.windows": "",
     "terminal.integrated.defaultProfile.linux": "bash",
-    "terraform.codelens.referenceCount": true,
     "[hcl]": {
         "editor.tabSize": 2
     },
@@ -119,7 +114,6 @@
     },
     "puppet.editorService.debugFilePath": "{{ .chezmoi.homeDir }}/tmp/vscode-puppet.log",
     "gitlens.launchpad.indicator.enabled": false,
-    "terraform.languageServer.terraform.path": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/terraform",
     "ruby.rubocop.executePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/",
     "ruby.rubocop.autocorrectOnSave": true,
     "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/latest",
@@ -148,4 +142,26 @@
     "gitlab.duo.enabledWithoutGitlabProject": false,
     "gitlab.keybindingHints.enabled": false,
     "editor.wordWrap": "on",
+    "chat.agent.enabled": false,
+    "telemetry.feedback.enabled": false,
+    "git.suggestSmartCommit": false,
+    "[html]": {
+        "editor.formatOnSave": false
+    },
+    "[makefile]": {
+        "editor.insertSpaces": false
+    },
+    "docker.extension.enableComposeLanguageServer": false,
+    "opentofu.experimentalFeatures.prefillRequiredFields": true,
+    "[opentofu]": {
+        "editor.defaultFormatter": "opentofu.vscode-opentofu",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "[opentofu-vars]": {
+        "editor.defaultFormatter": "opentofu.vscode-opentofu",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "opentofu.languageServer.tofu.path": "/home/ruben/.local/share/mise/shims/tofu"
 }

@@ -1,6 +1,7 @@
 [settings]
 python_compile = false
 experimental = true
+idiomatic_version_file_enable_tools = ["ruby"]
 
 [tools]
 ripgrep = "latest"
@@ -58,3 +59,10 @@ talosctl = "latest"
 ruff = "latest"
 "go:github.com/dlvhdr/diffnav" = "latest"
 "gem:solargraph" = "latest"
+cosign = "latest"
+"ubi:kubetail-org/kubetail" = "latest"
+"gem:erb_lint" = "latest"
+goreleaser = "latest"
+"ubi:What-is-water93/cookies" = "latest"
+gitleaks = "latest"
+starship = "latest"
