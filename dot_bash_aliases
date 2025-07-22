@@ -10,10 +10,10 @@ alias publicipv6='dig @2606:4700:4700::1111 ch txt whoami.cloudflare -6 +short |
 alias amend='git commit --amend --no-edit && git push  --force-with-lease'
 alias awsl='aws sso login'
 alias aws-profile='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf)'
-alias drirm="docker run -it --rm"
-alias fixup="git log -n 50 --pretty=format:'%h %s' --no-merges | grep -v fixup! | fzf | cut -c -7 | xargs -o git commit --fixup"
-alias ocd="bundle exec octocatalog-diff"
-alias jq="gojq"
+alias drirm='docker run -it --rm'
+alias fixup='git log -n 50 --pretty=format:'%h %s' --no-merges | grep -v fixup! | fzf | cut -c -7 | xargs -o git commit --fixup'
+alias ocd='bundle exec octocatalog-diff'
+alias jq='gojq'
 alias checkov='docker run -it --rm --workdir /share -v $PWD:/share:ro bridgecrew/checkov:latest --quiet --compact --directory /share'
 alias mv='mv -i'
 alias cp='cp -i'

@@ -47,3 +47,7 @@ export KUBE_EDITOR='code --wait'
 
 # other
 complete -C "$HOME"/.local/share/mise/shims/tofu tofu
+# get json structure
+jq_s() {
+  jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]' "$@"
+}
