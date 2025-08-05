@@ -2,22 +2,6 @@
     "security.workspace.trust.untrustedFiles": "open",
     "editor.renderWhitespace": "all",
     "redhat.telemetry.enabled": false,
-    "[ruby]": {
-        "editor.tabSize": 2,
-        "editor.detectIndentation": false,
-        "editor.defaultFormatter": "LoranKloeze.ruby-rubocop-revived",
-        "editor.formatOnType": true,
-        "editor.insertSpaces": true,
-        "files.trimFinalNewlines": true,
-        "editor.rulers": [
-            120
-        ],
-        "editor.semanticHighlighting.enabled": true,
-        "editor.formatOnSave": true,
-        "files.trimTrailingWhitespace": true,
-        "files.insertFinalNewline": true
-    },
-    "puppet.editorService.formatOnType.enable": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "files.associations": {
         "*.dot": "dot",
@@ -38,12 +22,10 @@
     "[python]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
-        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnPaste": true
     },
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "ansible.python.interpreterPath": "python3",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "yaml.customTags": [
         "!vault"
@@ -69,10 +51,6 @@
             "resource-limits"
         ],
         "vs-kubernetes.crd-code-completion": "enabled",
-        "vs-kubernetes.knownKubeconfigs": [
-            "{{ .chezmoi.homeDir }}/.kube/clusters/{{ .clustername }}"
-        ],
-        "vs-kubernetes.kubeconfig": "{{ .chezmoi.homeDir }}/.kube/clusters/{{ .clustername }}"
     },
     "editor.indentSize": "tabSize",
     "editor.formatOnSave": true,
@@ -112,10 +90,7 @@
         "editor.tabSize": 2,
         "editor.insertSpaces": false
     },
-    "puppet.editorService.debugFilePath": "{{ .chezmoi.homeDir }}/tmp/vscode-puppet.log",
     "gitlens.launchpad.indicator.enabled": false,
-    "ruby.rubocop.executePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/",
-    "ruby.rubocop.autocorrectOnSave": true,
     "go.goroot": "{{ .chezmoi.homeDir }}/.local/share/mise/installs/go/latest",
     "shellcheck.ignorePatterns": {
         "**/*.envrc": true
@@ -125,19 +100,10 @@
     "makefile.configureOnOpen": true,
     "explorer.confirmDelete": false,
     "gitlab.duoCodeSuggestions.enabled": false,
-    "[erb]": {
-        "editor.defaultFormatter": "manuelpuyol.erb-linter",
-        "editor.formatOnSave": false
-    },
     "gopls": {
         "ui.semanticTokens": true
     },
-    "solargraph.commandPath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/solargraph",
-    "erb.erb-lint.pathToBundler": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/bundle",
     "window.titleBarStyle": "custom",
-    "[puppet]": {
-        "editor.formatOnSaveMode": "modifications",
-    },
     "chat.commandCenter.enabled": false,
     "gitlab.duo.enabledWithoutGitlabProject": false,
     "gitlab.keybindingHints.enabled": false,
@@ -163,5 +129,6 @@
         "editor.formatOnSave": true,
         "editor.formatOnSaveMode": "file"
     },
-    "opentofu.languageServer.tofu.path": "/home/ruben/.local/share/mise/shims/tofu"
+    "opentofu.languageServer.tofu.path": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/tofu",
+    "shfmt.executablePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/shfmt"
 }

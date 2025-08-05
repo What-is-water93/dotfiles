@@ -3,10 +3,11 @@
 
 # mise
 # export MISE_GITHUB_TOKEN=''
-eval "$(/usr/bin/mise activate "$CURRENT_SHELL")"
+eval "$(mise activate "$CURRENT_SHELL")"
 eval "$(mise exec fzf -- fzf --"$CURRENT_SHELL")"
 eval "$(mise exec direnv -- direnv hook "$CURRENT_SHELL")"
 eval "$(mise exec zoxide -- zoxide init "$CURRENT_SHELL")"
+eval "$(mise exec starship -- starship init "$CURRENT_SHELL")"
 
 # git
 git_search() {
@@ -19,34 +20,36 @@ git_search() {
 
 # kubernets
 # shellcheck disable=SC1090
-source <(kubectl completion bash)
+source <(kubectl completion "$CURRENT_SHELL")
 
-complete -o default -F __start_kubectl k
-kgs () {
-    if (kubectl get secret "$@" &>/dev/null);
-    then
-        kubectl get secret "$@" -o json|jq ".data|map_values(@base64d)"
-    else
-        # shellcheck disable=SC2145
-        echo "Secret not found: $@. Did you specify the correct namespace?" >> /dev/stderr
-    fi
+if [ -n "$BASH_VERSION" ]; then
+  # Bash completion
+  complete -o default -F __start_kubectl k
+fi
+
+kgs() {
+  if (kubectl get secret "$@" &>/dev/null); then
+    kubectl get secret "$@" -o json | jq ".data|map_values(@base64d)"
+  else
+    # shellcheck disable=SC2145
+    echo "Secret not found: $@. Did you specify the correct namespace?" >>/dev/stderr
+  fi
 }
 if [ -z "${KUBECONFIG}" ]; then
-    KUBECONFIG="${HOME}/.kube/config"
+  KUBECONFIG="${HOME}/.kube/config"
 fi
 KUBE_CLUSTERS_DIR="${HOME}/.kube/clusters"
-if [ -d "${KUBE_CLUSTERS_DIR}" ];
-then
-    for config_file in "${HOME}"/.kube/clusters/*
-    do
-        KUBECONFIG=$KUBECONFIG:$config_file
-    done
+if [ -d "${KUBE_CLUSTERS_DIR}" ]; then
+  for config_file in "${HOME}"/.kube/clusters/*; do
+    KUBECONFIG=$KUBECONFIG:$config_file
+  done
 fi
 export KUBECONFIG
 export KUBE_EDITOR='code --wait'
 
 # other
-complete -C "$HOME"/.local/share/mise/shims/tofu tofu
+eval "$(chezmoi completion "$CURRENT_SHELL")"
+
 # get json structure
 jq_s() {
   jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]' "$@"
