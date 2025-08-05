@@ -1,0 +1,25 @@
+# shellcheck disable=SC2148
+# shellcheck disable=SC2034
+CURRENT_SHELL="zsh"
+HISTSIZE=10000
+SAVEHIST=10000
+
+# History sharing and behavior options
+setopt SHARE_HISTORY        # Share history between all sessions
+setopt INC_APPEND_HISTORY   # Immediately append to history file
+setopt APPEND_HISTORY       # Append to history file (don't overwrite)
+setopt HIST_IGNORE_DUPS     # Don't record duplicates
+setopt HIST_IGNORE_ALL_DUPS # Delete old duplicates
+setopt HIST_IGNORE_SPACE    # Don't record commands starting with space
+setopt HIST_VERIFY          # Show expanded command before running
+autoload -Uz compinit
+compinit
+if [ -f ~/.aliases ]; then
+    # shellcheck disable=SC1090
+    source ~/.aliases
+fi
+
+if [ -f ~/.shellconfig ]; then
+    # shellcheck disable=SC1090
+    source ~/.shellconfig
+fi
