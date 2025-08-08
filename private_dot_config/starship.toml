@@ -54,7 +54,7 @@ format = '[$user@]($style)'
 disabled = true
 
 [kubernetes]
-disabled = true
+disabled = false
 [[kubernetes.contexts]]
 context_pattern = "*prod*"
 style = "bold red"
