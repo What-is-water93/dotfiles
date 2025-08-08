@@ -1,11 +1,13 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $ssh_key := promptStringOnce . "primary ssh key" "Name of the primary ssh key file" -}}
 {{- $ssh_key_pub := promptStringOnce . "primary ssh public key" "Name of the primary ssh public key file" -}}
+{{- $github_read_token := promptStringOnce . "read only github token" "Github Token to avoid GitHub ratelimiting with mise" -}}
 
 [data]
     email = {{ $email | quote }}
     ssh_key = {{ $ssh_key | quote }}
     ssh_key_pub = {{ $ssh_key_pub | quote }}
+    github_read_token = {{ $github_read_token | quote }}
 [edit]
 command = "code"
 args = ["--wait"]
