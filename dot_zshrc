@@ -1,8 +1,9 @@
 # shellcheck disable=SC2148
 # shellcheck disable=SC2034
 CURRENT_SHELL="zsh"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # History sharing and behavior options
 setopt SHARE_HISTORY        # Share history between all sessions
@@ -22,3 +23,15 @@ if [ -f ~/.shellconfig ]; then
     # shellcheck disable=SC1090
     source ~/.shellconfig
 fi
+
+if [ -d ~/.zshrc.d ]; then
+  for file in ~/.zshrc.d/*; do
+    [ -r "$file" ] && . "$file"
+  done
+fi
+
+# fzf key bindings
+[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
+
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word

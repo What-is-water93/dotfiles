@@ -80,7 +80,7 @@
     "gitlens.telemetry.enabled": false,
     "rest-client.enableTelemetry": false,
     "terminal.integrated.defaultProfile.windows": "",
-    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.linux": "zsh",
     "[hcl]": {
         "editor.tabSize": 2
     },
@@ -130,5 +130,7 @@
         "editor.formatOnSaveMode": "file"
     },
     "opentofu.languageServer.tofu.path": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/tofu",
-    "shfmt.executablePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/shfmt"
+    "shfmt.executablePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/shfmt",
+    "terminal.external.linuxExec": "zsh",
+    "workbench.editor.empty.hint": "hidden",
 }

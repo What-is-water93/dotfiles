@@ -17,9 +17,12 @@ alias cp='cp -i'
 alias rg='rg --no-ignore-vcs --hidden'
 alias fd='fd -H -I'
 alias tf_clean='fd -t d -H "^\.terraform$|^\.terragrunt-cache$" -x rm -rf'
+alias sc='switch'
 alias sn='switch namespace'
 {{- if eq .chezmoi.os "linux" }}
-alias update='sudo apt update && sudo apt upgrade -y && mise cache clear && mise plugin up && mise up'
+alias update='sudo dnf upgrade -y && mise cache clear && mise plugin up && mise up'
+alias switch='kubeswitch'
+alias switcher='kubeswitch'
 {{- else if eq .chezmoi.os "darwin" }}
 alias update='brew update && brew upgrade && mise cache clear && mise plugin up && mise up'
 {{- end }}

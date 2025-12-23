@@ -3,3 +3,4 @@ ruben-test
 .vscode
 .terraform
 *.bkp
+.envrc
