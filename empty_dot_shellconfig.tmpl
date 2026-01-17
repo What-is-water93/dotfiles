@@ -21,6 +21,7 @@ git_search() {
 # kubernetes
 # shellcheck disable=SC1090
 source <(kubectl completion "$CURRENT_SHELL")
+source <(flux-operator completion "$CURRENT_SHELL")
 if [[ $CURRENT_SHELL == "zsh" ]]; then
   compdef kubecolor='kubectl'
 fi
