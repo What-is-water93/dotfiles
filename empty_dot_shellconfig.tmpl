@@ -58,6 +58,10 @@ fi
 export KUBECONFIG
 export KUBE_EDITOR='code --wait'
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+if [ ! -d "$HOME/bin" ]; then
+    mkdir "$HOME/bin"
+fi
+export PATH="${HOME}/bin:$PATH"
 
 # other
 # eval "$(chezmoi completion "$CURRENT_SHELL")"
