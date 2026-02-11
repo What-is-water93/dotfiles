@@ -39,8 +39,7 @@
   com = commit -m
   ds = diff --staged
   cane = commit --amend --no-edit
-  rh = "!f() { git rebase -i HEAD~$1; }; f"
-  acp = "!git add -u && git commit -m \"update $(date '+%Y-%m-%d %H:%M')\" && git push"
+  rh = "!sh -c 'git rebase -i HEAD~$1' sh"
   rc = rebase --continue
   pfwl = push --force-with-lease
 [merge]

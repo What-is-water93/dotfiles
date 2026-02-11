@@ -3,3 +3,5 @@ ruben-test
 .vscode
 .terraform
 *.bkp
+.envrc
+mise.local.toml

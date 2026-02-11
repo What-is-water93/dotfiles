@@ -62,7 +62,6 @@ export KUBE_EDITOR='code --wait'
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # other
-eval "$(chezmoi completion "$CURRENT_SHELL")"
 # shellcheck disable=SC1090
 source <(switcher init zsh)
 
@@ -74,3 +73,16 @@ mkcd () {
 jq_s() {
   jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]' "$@"
 }
+
+if [ -d "{{ .chezmoi.homeDir }}/bin" ] ; then
+    PATH="{{ .chezmoi.homeDir }}/bin:$PATH"
+fi
+
+if [ -d "{{ .chezmoi.homeDir }}/.local/bin" ] ; then
+    PATH="{{ .chezmoi.homeDir }}/.local/bin:$PATH"
+fi
+
+if [ -f "{{ .chezmoi.homeDir }}/.cargo/env" ]; then
+    # shellcheck source={{ .chezmoi.homeDir }}/.cargo/env
+    . "{{ .chezmoi.homeDir }}/.cargo/env"
+fi

@@ -22,3 +22,8 @@ if [ -f ~/.shellconfig ]; then
     # shellcheck disable=SC1090
     source ~/.shellconfig
 fi
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+export NIX_SHELL_HOOK="exec zsh"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"

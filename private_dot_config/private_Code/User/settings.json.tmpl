@@ -130,5 +130,15 @@
         "editor.formatOnSaveMode": "file"
     },
     "opentofu.languageServer.tofu.path": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/tofu",
-    "shfmt.executablePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/shfmt"
+    "shfmt.executablePath": "{{ .chezmoi.homeDir }}/.local/share/mise/shims/shfmt",
+    "terminal.integrated.initialHint": false,
+    "go.experiments": {
+        "jsonv2": true,
+    },
+    "go.toolsEnvVars": {
+        "GOEXPERIMENT": "jsonv2"
+    },
+    "go.testEnvVars": {
+        "GOEXPERIMENT": "jsonv2"
+    }
 }
