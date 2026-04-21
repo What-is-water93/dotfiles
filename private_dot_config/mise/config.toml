@@ -1,6 +1,4 @@
 [settings]
-python_compile = false
-lockfile = true
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
@@ -17,7 +15,7 @@ helm = "latest"
 flux2 = "latest"
 sops = "latest"
 age = "latest"
-qdns = "0.19.2"
+qdns = "latest"
 k9s = "latest"
 cilium-cli = "latest"
 cilium-hubble = "latest"
@@ -43,8 +41,6 @@ node = "latest"
 pandoc = "latest"
 "aqua:kubecolor/kubecolor" = "latest"
 dive = "latest"
-helmfile = "latest"
-trivy = "latest"
 crane = "latest"
 talosctl = "latest"
 ruff = "latest"
@@ -55,6 +51,10 @@ starship = "latest"
 shfmt= "latest"
 slsa-verifier = "latest"
 krew = "latest"
-"ubi:danielfoehrKn/kubeswitch" = "latest"
+"github:danielfoehrKn/kubeswitch" = "latest"
 bitwarden = "latest"
 "github:controlplaneio-fluxcd/flux-operator" = { version = "latest", asset_pattern = "flux-operator_*_linux_*" }
+"github:dlvhdr/diffnav" = "latest"
+"go:github.com/go-delve/delve/cmd/dlv" = "latest"
+rust = "latest"
+"cargo:trippy" = "latest"

@@ -26,6 +26,7 @@ alias t='talosctl'
 alias update='sudo dnf upgrade -y && mise cache clear && mise plugin up && mise up'
 alias switch='kubeswitch'
 alias switcher='kubeswitch'
+alias firmware-update='fwupdmgr refresh --force && fwupdmgr get-updates && fwupdmgr update'
 {{- else if eq .chezmoi.os "darwin" }}
 alias update='brew update && brew upgrade && mise cache clear && mise plugin up && mise up'
 {{- end }}
