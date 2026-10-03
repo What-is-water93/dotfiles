@@ -59,5 +59,6 @@ bitwarden = "latest"
 rust = "latest"
 "cargo:trippy" = "latest"
 fnox = "latest"
-"github:overflowy/zhist" = "v1.2.2"
-
+"aqua:doy/rbw" = "1.15.0"
+"github:What-is-water93/zhist" = "v1.0.0"
+"github:nklmilojevic/sofka" = "latest"

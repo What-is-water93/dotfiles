@@ -39,37 +39,5 @@ eval "$(zhist init -no-arrow-binds)"
 
 HIST_EXCLUDE=(cd ls clear pwd exit zsh)
 
-# Override history widget to pass the current buffer as initial search query
-_fhistory_select() {
-	local query="$1"
-	local qpwd qstate pstate reload toggle pwin id
-	printf -v qpwd '%q' "$PWD"
-
-	pstate="${XDG_STATE_HOME:-$HOME/.local/state}/zhist/preview-hidden"
-	mkdir -p "$(dirname "$pstate")"
-	printf -v qstate '%q' "$pstate"
-
-	reload="if [ \"\$FZF_PROMPT\" = \"Dir> \" ]; then zhist list -dir $qpwd; else zhist list; fi"
-	toggle="if [ \"\$FZF_PROMPT\" = \"Dir> \" ]; then echo \"change-prompt(Global> )+reload(zhist list)\"; else echo \"change-prompt(Dir> )+reload(zhist list -dir $qpwd)\"; fi"
-
-	pwin="up,6,wrap"
-	[[ -f "$pstate" ]] && pwin="up,6,wrap,hidden"
-
-	id=$(zhist list |
-		FZF_DEFAULT_OPTS='' FZF_DEFAULT_OPTS_FILE='' \
-		fzf --ansi --no-reverse --prompt="Global> " --tiebreak=index \
-			--tabstop=1 --delimiter='\t' --with-nth=2.. \
-			--preview="zhist get -id {1}" --preview-window="$pwin" \
-			--header="ctrl-g: dir/global · ctrl-d: delete entry · ctrl-x: delete all · ctrl-/: preview" \
-			--query="$query" \
-			--bind "tab:accept" \
-			--bind "ctrl-/:toggle-preview+execute-silent(if [ -f $qstate ]; then rm -f $qstate; else touch $qstate; fi)" \
-			--bind "ctrl-g:transform:$toggle" \
-			--bind "ctrl-d:execute-silent(zhist delete -id {1})+reload($reload)" \
-			--bind "ctrl-x:execute-silent(zhist delete -id {1} -all)+reload($reload)" |
-		cut -f1)
-	[[ -n "$id" ]] && zhist get -id "$id"
-}
-
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
